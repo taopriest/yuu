@@ -99,7 +99,7 @@ def main():
     for char in illegalchar:
         output = output.replace(char, '_')
 
-    print('[INFO] Fetching m3u8 key')
+    print('[INFO] Fetching video key')
     getkey = fetchVideoKey(ticket, authtoken, sesi, args.verbose)
     
     print('[INFO][DOWN] Starting downloader...')

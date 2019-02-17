@@ -17,11 +17,24 @@ def decryptData(tsdata, key, iv):
 	iv = unhexlify(iv)
 	
 	return _decrypt(tsdata, key, iv)
+
+
+def simple_getVideo(_f, key, iv, tempdir, session):
+	outputtemp = os.path.basename(_f)
+	if outputtemp.find('?tver') != -1:
+		outputtemp = outputtemp[:outputtemp.find('?tver')]
+	outputtemp = tempdir + '\\' + outputtemp
+	with open(outputtemp, 'wb') as outf:
+		try:
+			req = session.get(_f)
+			outf.write(decryptData(req.content, key, iv))
+		except Exception as err:
+			print('[ERROR] Problem occured\nreason: {}'.format(err))
+	return outputtemp
 	
 def getVideo(fileslist, key, iv, session, verbose):
 	print('[INFO][DOWN] Creating temporary folder')
 	tempdir = tempfile.mkdtemp()
-	dledfiles = []
 	
 	if not verbose:
 		with tqdm(total=len(fileslist), desc='Downloading', ascii=True, unit='file') as pbar:
