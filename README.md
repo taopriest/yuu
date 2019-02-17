@@ -1,3 +1,6 @@
+# Rewrite version
+Not stable, please don't use it until it get merged with main master branch
+
 # (koito) yuu 
 A simple AbemaTV video downloader in python
 
