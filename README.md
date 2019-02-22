@@ -1,6 +1,8 @@
 # Rewrite version
 Not stable, please don't use it until it get merged with main master branch
 
+To run the GUI: `python maingui.py`
+
 # (koito) yuu 
 A simple AbemaTV video downloader in python
 
